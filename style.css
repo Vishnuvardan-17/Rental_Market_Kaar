@@ -315,16 +315,18 @@ header {
 }
 
 .rental-container {
-    display: flex;
-    gap: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .rental-card {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    width: 320px;
+    width: 100%;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: var(--card-shadow);
@@ -489,36 +491,121 @@ footer {
     font-size: 0.95rem;
 }
 
-/* Responsive */
-@media(max-width:768px) {
+.mobile-only-item {
+    display: none;
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Queries */
+@media (max-width: 1024px) {
     .navbar {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px;
+        padding: 15px 5%;
     }
 
-    .logo {
-        margin: -10px 0;
+    .hamburger {
+        display: flex;
+    }
+
+    .desktop-only-btn {
+        display: none;
+    }
+
+    .mobile-only-item {
+        display: block;
+        margin-top: 10px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: rgba(11, 15, 25, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-left: 1px solid var(--border-color);
+        flex-direction: column;
         justify-content: center;
-        gap: 20px;
+        align-items: center;
+        gap: 30px;
+        transition: var(--transition);
+        z-index: 1000;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        padding: 40px;
+    }
+
+    .nav-links.active {
+        right: 0;
     }
 
     .hero-content h1 {
-        font-size: 38px;
+        font-size: 46px;
+    }
+
+    .category-container {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 120px 20px 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
     }
 
     .search-box {
         flex-direction: column;
-        padding: 6px;
+        gap: 10px;
+        padding: 10px;
     }
 
     .search-box input {
         width: 100%;
-        padding: 10px;
+        padding: 8px;
+        text-align: center;
     }
 
     .search-box button {
@@ -529,5 +616,32 @@ footer {
         flex-direction: column;
         align-items: center;
         gap: 40px;
+    }
+
+    .step {
+        max-width: 100%;
+    }
+
+    .categories, .featured, .steps, .testimonials {
+        padding: 60px 5%;
+    }
+
+    .categories h2, .featured h2, .steps h2, .testimonials h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .category-card {
+        width: 100%;
+        padding: 18px;
+    }
+
+    .testimonial-box {
+        padding: 20px;
     }
 }
