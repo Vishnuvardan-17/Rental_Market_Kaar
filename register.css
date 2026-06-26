@@ -65,7 +65,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
+    height: 72px;
+    padding: 0 10%;
     background: var(--bg-nav);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -73,15 +74,20 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
-.logo img {
-    width: 120px;
-    height: auto;
-    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
-    transition: var(--transition);
+.logo {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    flex-shrink: 0;
+    line-height: 0;
 }
 
-.logo img:hover {
-    transform: scale(1.05);
+.logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+    cursor: pointer;
+    object-fit: contain;
 }
 
 .nav-links {
@@ -94,7 +100,6 @@ body {
     text-decoration: none;
     color: var(--text-secondary);
     font-weight: 500;
-    transition: var(--transition);
     position: relative;
     padding: 5px 0;
 }
@@ -111,7 +116,6 @@ body {
     width: 0;
     height: 2px;
     background: var(--primary-gradient);
-    transition: var(--transition);
 }
 
 .nav-links a:hover::after {
@@ -272,7 +276,6 @@ footer {
     height: 2px;
     background-color: var(--text-primary);
     border-radius: 2px;
-    transition: var(--transition);
 }
 
 .hamburger.active span:nth-child(1) {
@@ -290,7 +293,8 @@ footer {
 /* Mobile Responsive */
 @media (max-width: 1024px) {
     .navbar {
-        padding: 15px 5%;
+        height: 64px;
+        padding: 0 5%;
     }
 
     .hamburger {
@@ -311,7 +315,6 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 30px;
-        transition: var(--transition);
         z-index: 1000;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         padding: 40px;
@@ -336,8 +339,8 @@ footer {
         margin-bottom: 20px;
     }
 
-    .logo img {
-        width: 90px;
+    .navbar {
+        height: 56px;
     }
 }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RentHub - Login</title>
-    <link rel="icon" type="image/png" href="images/ChatGPT Image Jun 15, 2026, 09_57_55 AM.png">
+    <link rel="icon" type="image/png" href="images/renthub-logo.png">
     <link rel="stylesheet" href="register.css">
 </head>
 
@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="images/ChatGPT Image Jun 15, 2026, 09_57_55 AM.png" alt="RentHub Logo" onclick="window.location.href='index.html'">
+                <img src="images/renthub-logo.png" alt="RentHub Logo" onclick="window.location.href='index.html'">
             </div>
 
             <ul class="nav-links" id="navLinks">
@@ -24,12 +24,6 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
-
-            <button class="hamburger" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </nav>
     </header>
 
@@ -66,15 +60,7 @@
         <p>© 2026 RentHub. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        hamburgerBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburgerBtn.classList.toggle('active');
-        });
-    </script>
+    <script src="js/forms.js"></script>
 
 </body>
 
