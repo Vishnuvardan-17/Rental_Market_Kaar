@@ -1,6 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
+    --bg-main: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: rgba(241, 245, 249, 0.95);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(99, 102, 241, 0.4);
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --primary-glow: 0 4px 20px rgba(99, 102, 241, 0.25);
+    --accent-glow: 0 10px 25px rgba(99, 102, 241, 0.08);
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent-color: #4f46e5;
+    --bg-nav: rgba(248, 250, 252, 0.8);
+    --hero-overlay: linear-gradient(180deg, rgba(248, 250, 252, 0.6) 0%, rgba(248, 250, 252, 0.95) 100%);
+    --hero-title-gradient: linear-gradient(135deg, #0f172a 30%, #4f46e5 100%);
+    --search-bg: rgba(255, 255, 255, 0.9);
+    --search-input-color: #0f172a;
+    --search-placeholder: rgba(15, 23, 42, 0.4);
+    --footer-bg: #f1f5f9;
+}
+
+.dark-theme {
     --bg-main: #0b0f19;
     --bg-card: rgba(15, 23, 42, 0.65);
     --bg-card-hover: rgba(23, 37, 84, 0.7);
@@ -8,13 +33,17 @@
     --border-hover: rgba(99, 102, 241, 0.4);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
     --primary-glow: 0 4px 20px rgba(99, 102, 241, 0.4);
     --accent-glow: 0 0 25px rgba(99, 102, 241, 0.15);
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent-color: #a5b4fc;
+    --bg-nav: rgba(11, 15, 25, 0.8);
+    --hero-overlay: linear-gradient(180deg, rgba(11, 15, 25, 0.6) 0%, rgba(11, 15, 25, 0.95) 100%);
+    --hero-title-gradient: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+    --search-bg: rgba(15, 23, 42, 0.6);
+    --search-input-color: white;
+    --search-placeholder: rgba(255, 255, 255, 0.4);
+    --footer-bg: #070a13;
 }
 
 * {
@@ -58,7 +87,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 8%;
-    background: rgba(11, 15, 25, 0.8);
+    background: var(--bg-nav);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
@@ -144,7 +173,7 @@ header {
     align-items: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(180deg, rgba(11, 15, 25, 0.6) 0%, rgba(11, 15, 25, 0.95) 100%),
+    background: var(--hero-overlay),
         url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200");
     background-size: cover;
     background-position: center;
@@ -176,7 +205,7 @@ header {
     font-weight: 800;
     line-height: 1.15;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #ffffff 30%, #a5b4fc 100%);
+    background: var(--hero-title-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
@@ -192,7 +221,7 @@ header {
 .search-box {
     display: flex;
     justify-content: center;
-    background: rgba(15, 23, 42, 0.6);
+    background: var(--search-bg);
     border: 1px solid var(--border-color);
     padding: 8px;
     border-radius: 12px;
@@ -213,13 +242,13 @@ header {
     background: transparent;
     border: none;
     padding: 12px 18px;
-    color: white;
+    color: var(--search-input-color);
     font-size: 16px;
     outline: none;
 }
 
 .search-box input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--search-placeholder);
 }
 
 .search-box button {
@@ -364,7 +393,7 @@ header {
     padding: 15px 20px 20px 20px;
     display: block;
     font-weight: 700;
-    color: #a5b4fc;
+    color: var(--accent-color);
     font-size: 1.15rem;
 }
 
@@ -476,14 +505,14 @@ header {
 }
 
 .testimonial-box h4 {
-    color: #a5b4fc;
+    color: var(--accent-color);
     font-family: var(--font-heading);
     font-weight: 600;
 }
 
 /* Footer */
 footer {
-    background: #070a13;
+    background: var(--footer-bg);
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
     text-align: center;
@@ -554,7 +583,7 @@ footer {
         right: -100%;
         width: 300px;
         height: 100vh;
-        background: rgba(11, 15, 25, 0.98);
+        background: var(--bg-main);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid var(--border-color);
@@ -644,4 +673,96 @@ footer {
     .testimonial-box {
         padding: 20px;
     }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+}
+
+.theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.theme-toggle-btn svg.hidden {
+    display: none;
+}
+
+/* Category Active State */
+.category-card.active {
+    background: var(--primary-gradient);
+    border-color: transparent;
+    color: white;
+    box-shadow: var(--primary-glow);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
+}
+
+.modal-content {
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    color: var(--text-primary);
+    position: relative;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    color: var(--text-secondary);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
 }

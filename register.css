@@ -1,6 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 :root {
+    --bg-main: #f8fafc;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: rgba(241, 245, 249, 0.95);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --border-hover: rgba(99, 102, 241, 0.4);
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    --primary-glow: 0 4px 20px rgba(99, 102, 241, 0.25);
+    --accent-glow: 0 10px 25px rgba(99, 102, 241, 0.08);
+    --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent-color: #4f46e5;
+    --bg-nav: rgba(248, 250, 252, 0.8);
+    --input-bg: rgba(241, 245, 249, 0.8);
+    --input-text: #0f172a;
+    --input-placeholder: rgba(15, 23, 42, 0.4);
+    --footer-bg: #f1f5f9;
+}
+
+.dark-theme {
     --bg-main: #0b0f19;
     --bg-card: rgba(15, 23, 42, 0.65);
     --bg-card-hover: rgba(23, 37, 84, 0.7);
@@ -8,13 +31,15 @@
     --border-hover: rgba(99, 102, 241, 0.4);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
     --primary-glow: 0 4px 20px rgba(99, 102, 241, 0.4);
     --accent-glow: 0 0 25px rgba(99, 102, 241, 0.15);
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent-color: #a5b4fc;
+    --bg-nav: rgba(11, 15, 25, 0.8);
+    --input-bg: rgba(15, 23, 42, 0.5);
+    --input-text: white;
+    --input-placeholder: rgba(255, 255, 255, 0.3);
+    --footer-bg: #070a13;
 }
 
 /* Reset */
@@ -41,7 +66,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10%;
-    background: rgba(11, 15, 25, 0.8);
+    background: var(--bg-nav);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
@@ -160,9 +185,9 @@ body {
 .form-group input {
     width: 100%;
     padding: 12px 16px;
-    background: rgba(15, 23, 42, 0.5);
+    background: var(--input-bg);
     border: 1px solid var(--border-color);
-    color: white;
+    color: var(--input-text);
     border-radius: 8px;
     font-size: 15px;
     transition: var(--transition);
@@ -170,13 +195,13 @@ body {
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color);
+    border-color: var(--border-hover);
     box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
-    background: rgba(15, 23, 42, 0.8);
+    background: var(--bg-card);
 }
 
 .form-group input::placeholder {
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--input-placeholder);
 }
 
 .login-btn {
@@ -207,22 +232,22 @@ body {
 }
 
 .signup-text a {
-    color: #a5b4fc;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
 }
 
 .signup-text a:hover {
-    color: white;
-    text-shadow: 0 0 10px rgba(165, 180, 252, 0.5);
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(165, 180, 252, 0.2);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 25px;
-    background: #070a13;
+    background: var(--footer-bg);
     border-top: 1px solid var(--border-color);
     color: var(--text-secondary);
     font-size: 0.95rem;
@@ -278,7 +303,7 @@ footer {
         right: -100%;
         width: 300px;
         height: 100vh;
-        background: rgba(11, 15, 25, 0.98);
+        background: var(--bg-main);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
         border-left: 1px solid var(--border-color);
@@ -321,4 +346,33 @@ footer {
         padding: 20px 15px;
         border-radius: 12px;
     }
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.theme-toggle-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+}
+
+.theme-toggle-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.theme-toggle-btn svg.hidden {
+    display: none;
 }
